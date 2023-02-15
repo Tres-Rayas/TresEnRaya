@@ -14,4 +14,15 @@ public class GestionDatos {
 		return 1;
 
 	}
+	
+	
+	public boolean posibleColocarFicha(Coordenada cords) {
+		if(this.tablero.mirarCasillaLibre(cords)){
+			this.numerojugada++;
+			tablero.setValorPosicion(cords, numerojugada);
+			return true;
+		}
+			return false;
+	}
+	
 }

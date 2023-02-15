@@ -1,7 +1,7 @@
 package modelo;
 
 public class Tablero {
-	public int tablero[][] = { { 0, 0, 0 }, { 0, 1, 0 }, { 0, 0, 0 } };
+	public int tablero[][] = { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
 
 	public int getValorPosicion(Coordenada coordenada) {
 		return tablero[coordenada.getX()][coordenada.getY()];
