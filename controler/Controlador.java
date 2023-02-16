@@ -27,6 +27,12 @@ public class Controlador {
 			return "X";
 		}
 	}
+	public String mensajeHasGanado() {
+		if(gestion.getDatos().getHasGanado()) {
+			return "Has ganado";
+		}
+		return "";
+	}
 	
 
 }
