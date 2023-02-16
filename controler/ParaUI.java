@@ -17,6 +17,8 @@ public class ParaUI extends UI {
 		this.controlador = new Controlador();
 		crearComportamientoBotones();
 		addComportamientoBotones();
+		//SET CURRENT LABEL AL CONSTRUIR
+		getLblCurrentPlayer().setText(controlador.devolverTurnoActual());
 	}
 	
 	
@@ -25,14 +27,9 @@ public class ParaUI extends UI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				MyButton botonPulsado = (MyButton)e.getSource();
-				if(controlador.hacerMovimiento(botonPulsado.getCordenadas()) ) {
-					if(controlador.gestion.numerojugada%2==0) {
-						botonPulsado.setText("O");
-					}
-					else {
-						botonPulsado.setText("X");
-					}
-				}
+				
+				imprimirBotones(controlador.hacerMovimiento(botonPulsado.getCordenadas()));
+				getLblCurrentPlayer().setText(controlador.devolverTurnoActual());
 				
 			}
 		};
@@ -44,6 +41,19 @@ public class ParaUI extends UI {
 		for(int i=0;i<getBotones().length;i++) {
 			for(int j=0;j<getBotones()[0].length;j++) {
 				getBotones()[i][j].addActionListener(comportamiento);
+			}
+		}
+	}
+	private void imprimirBotones(int[][] tablero) {
+		for(int i=0;i<getBotones().length;i++) {
+			for(int j=0;j<getBotones()[0].length;j++) {
+				if(tablero[i][j]==1) {
+					getBotones()[i][j].setText("X");
+				}else if(tablero[i][j]==2){
+					getBotones()[i][j].setText("O");
+				}else {
+					getBotones()[i][j].setText("");
+				}
 			}
 		}
 	}
