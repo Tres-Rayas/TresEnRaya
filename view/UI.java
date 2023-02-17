@@ -5,17 +5,23 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controler.MyButton;
+
 import javax.swing.JLabel;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class UI extends JFrame {
-	private JButton[][] botones = new JButton[3][3];
+	private MyButton[][] botones = new MyButton[3][3];
 	private JPanel contentPane;
 	private JPanel panel;
 	private JLabel lblMensaje;
+	private JLabel lblCurrentPlayer;
 
 	
 	public UI() {
@@ -40,11 +46,26 @@ public class UI extends JFrame {
 		lblMensaje.setBounds(62, 43, 319, 20);
 		contentPane.add(lblMensaje);
 		
+		lblCurrentPlayer = new JLabel("x");
+		lblCurrentPlayer.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCurrentPlayer.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCurrentPlayer.setBounds(23, 126, 52, 51);
+		contentPane.add(lblCurrentPlayer);
+		
+		
+		
+		//CREAR BOTONES
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				getBotones()[i][j] = new MyButton("",i,j);
+				getPanel().add(getBotones()[i][j]);
+			}
+		}
 
 		
 		
 	}
-	protected JButton[][] getBotones() {
+	protected MyButton[][] getBotones() {
 		return this.botones;
 	}
 	protected JPanel getPanel() {
@@ -53,4 +74,8 @@ public class UI extends JFrame {
 	public JLabel getLblMensaje() {
 		return lblMensaje;
 	}
+	public JLabel getLblCurrentPlayer() {
+		return lblCurrentPlayer;
+	}
+	
 }
