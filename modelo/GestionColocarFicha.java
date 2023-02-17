@@ -14,6 +14,8 @@ public class GestionColocarFicha {
 		if(comprobarPosDisponible(cords)) {
 			this.datos.aumentarUnaJugada();
 			colocarFicha(cords);
+			//COMPROBAR SI HAS GANADO
+			datos.setHasGanado(datos.getTablero().comprobarTresEnRaya());
 			return this.datos;
 		}
 		return this.datos;

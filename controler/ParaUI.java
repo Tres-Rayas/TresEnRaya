@@ -27,10 +27,16 @@ public class ParaUI extends UI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				MyButton botonPulsado = (MyButton)e.getSource();
+				//HACER MOVIMIENTO
+				if(controlador.hacerMovimiento(((MyButton)e.getSource()).getCordenadas())) {
+					imprimirBotones(controlador.getTablero());
+				}
+
 				
-				imprimirBotones(controlador.hacerMovimiento(botonPulsado.getCordenadas()));
+				//IMPRIMIR EL TURNO ACTUAL
 				getLblCurrentPlayer().setText(controlador.devolverTurnoActual());
-				
+				//IMPRIMIR MENSAJE SI HAS GANADO O SI NO HAS GANADO
+				getLblMensaje().setText(controlador.mensajeHasGanado());
 			}
 		};
 	}

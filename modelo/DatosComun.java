@@ -3,6 +3,7 @@ package modelo;
 public class DatosComun {
 	private Tablero tablero;
 	private int numerojugada;
+	private boolean hasGanado;
 	
 	public DatosComun() {
 		this.tablero=new Tablero();
@@ -15,6 +16,12 @@ public class DatosComun {
 	}
 	public int getNumerojugada() {
 		return numerojugada;
+	}
+	public boolean getHasGanado() {
+		return hasGanado;
+	}
+	public void setHasGanado(boolean ganadorOno) {
+		this.hasGanado=ganadorOno;
 	}
 	public void aumentarUnaJugada() {
 		this.numerojugada++;

@@ -16,7 +16,7 @@ public class Controlador {
 	}
 	
 	//PETICIONES DE LA UI AL MODELO
-	public int[][] hacerMovimiento(Coordenada cords) {
+	public boolean hacerMovimiento(Coordenada cords) {
 		return gestion.hacerMovimiento(cords);
 		
 	}
@@ -26,6 +26,15 @@ public class Controlador {
 		}else {
 			return "X";
 		}
+	}
+	public String mensajeHasGanado() {
+		if(gestion.getDatos().getHasGanado()) {
+			return "Has ganado";
+		}
+		return "";
+	}
+	public int[][] getTablero(){
+		return gestion.getTablero();
 	}
 	
 
