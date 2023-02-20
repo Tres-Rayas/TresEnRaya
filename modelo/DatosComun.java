@@ -1,5 +1,7 @@
 package modelo;
 
+
+
 public class DatosComun {
 	private Tablero tablero;
 	private int numerojugada;
@@ -25,6 +27,21 @@ public class DatosComun {
 	}
 	public void aumentarUnaJugada() {
 		this.numerojugada++;
+	}
+	public void disminuirUnaJugada() {
+		this.numerojugada--;
+	}
+	public int contadorFicha() {
+		int acum = 0;
+		for (int i = 0; i < tablero.getTableroCompleto().length; i++) {
+			for (int j = 0; j < tablero.getTableroCompleto()[0].length; j++) {
+				if (tablero.getTableroCompleto()[i][j] != 0) {
+					acum++;
+				}
+			}
+		}
+
+		return acum;
 	}
 	/**
 	 * Informa de quien es el turno actual

@@ -15,6 +15,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class UI extends JFrame {
 	private MyButton[][] botones = new MyButton[3][3];
@@ -31,25 +33,29 @@ public class UI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("3 EN RAYA");
-		lblNewLabel.setBounds(196, 11, 52, 14);
-		contentPane.add(lblNewLabel);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel.setBounds(105, 11, 187, 21);
 		
 		panel = new JPanel();
 		panel.setBounds(105, 85, 230, 128);
-		contentPane.add(panel);
 		panel.setLayout(new GridLayout(3, 3, 0, 0));
 		
 		lblMensaje = new JLabel("");
-		lblMensaje.setBounds(62, 43, 319, 20);
-		contentPane.add(lblMensaje);
+		lblMensaje.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMensaje.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblMensaje.setBounds(62, 36, 319, 38);
 		
 		lblCurrentPlayer = new JLabel("x");
+		lblCurrentPlayer.setBounds(23, 126, 52, 51);
 		lblCurrentPlayer.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCurrentPlayer.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblCurrentPlayer.setBounds(23, 126, 52, 51);
+		contentPane.setLayout(null);
+		contentPane.add(lblNewLabel);
+		contentPane.add(panel);
+		contentPane.add(lblMensaje);
 		contentPane.add(lblCurrentPlayer);
 		
 		
@@ -65,6 +71,7 @@ public class UI extends JFrame {
 		
 		
 	}
+	
 	protected MyButton[][] getBotones() {
 		return this.botones;
 	}
@@ -77,5 +84,6 @@ public class UI extends JFrame {
 	public JLabel getLblCurrentPlayer() {
 		return lblCurrentPlayer;
 	}
+
 	
 }

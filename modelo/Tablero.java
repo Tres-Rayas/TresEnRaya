@@ -83,7 +83,7 @@ public class Tablero {
 	 * @return true si casilla pertenece al turno actual o false en caso contrario
 	 */
 	public boolean comprobarPropiedad(Coordenada coordenada, int turno) {
-		return getValorPosicion(coordenada) ==turno;
+		return getValorPosicion(coordenada) == turno;
 	}
 	
 
