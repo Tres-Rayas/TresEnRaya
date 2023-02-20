@@ -7,35 +7,35 @@ import modelo.GestionDatos;
 //LA VISTA ME DA UNA SOLICITUD Y ESTA SOLICITUD DEMANDA DATOS AL MODELO
 //ESTE ME DA UNA RESPUESTA QUE SE LA DEVUELVO A LA UI A TRAVÉS DE ESTE CONTROLADOR
 public class Controlador {
-	
-	//CONECTAMOS EL MODELO AL CONTROLADOR PARA PEDIR DATOS Y CAMBIAR DATOS
+
+	// CONECTAMOS EL MODELO AL CONTROLADOR PARA PEDIR DATOS Y CAMBIAR DATOS
 	GestionDatos gestion = new GestionDatos();
-	
-	public Controlador(){
-		
+
+	public Controlador() {
+
 	}
-	
-	//PETICIONES DE LA UI AL MODELO
+
+	// PETICIONES DE LA UI AL MODELO
 	public boolean hacerMovimiento(Coordenada cords) {
 		return gestion.hacerMovimiento(cords);
-		
 	}
+
 	public String devolverTurnoActual() {
-		if(gestion.getDatos().verTurno()==1) {
+		if (gestion.getDatos().verTurno() == 1) {
 			return "O";
-		}else {
+		} else {
 			return "X";
 		}
 	}
+
 	public String mensajeHasGanado() {
-		if(gestion.getDatos().getHasGanado()) {
+		if (gestion.getDatos().getHasGanado()) {
 			return "Has ganado";
 		}
 		return "";
 	}
-	public int[][] getTablero(){
+
+	public int[][] getTablero() {
 		return gestion.getTablero();
 	}
-	
-
 }
