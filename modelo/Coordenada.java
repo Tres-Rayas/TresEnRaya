@@ -35,13 +35,21 @@ public class Coordenada {
 	 * 
 	 * @return True si es contigua false en caso contrario
 	 */
-	public boolean casillaContigua(Coordenada destino) {
-		int x = destino.getX() - this.getX(), y = destino.getY() - this.getY();
+	public static boolean casillaContigua(Coordenada destino,Coordenada origen) {
+		int x = destino.getX() - origen.getX(), y = destino.getY() - origen.getY();
 		if (x > -2 && x < 2 && y > -2 && y < 2)
 			return true;
 		return false;
 
 	}
+	
+//	public boolean casillaMovContigua(Coordenada last, Coordenada destino) {
+//		int x = destino.getX() - last.getX(), y = destino.getY() - last.getY();
+//		if (x > -2 && x < 2 && y > -2 && y < 2)
+//			return true;
+//		return false;
+//
+//	}
 	
 	@Override
 	public String toString() {

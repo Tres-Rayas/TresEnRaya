@@ -12,16 +12,19 @@ public class GestionMoverFicha {
 
 	public DatosComun MoverFicha(Coordenada cords) {
 		this.datos.aumentarUnaJugada();
-		if (datos.getTablero().comprobarPropiedad(cords, datos.verTurno())
-				&& datos.getTablero().comprobarBloqueada(cords) && datos.contadorFicha() == 6) {
+		if (datos.getTablero().comprobarPropiedad(cords, datos.verTurno())&& datos.getTablero().comprobarBloqueada(cords) && datos.contadorFicha() == 6) {
 			eliminarFicha(cords);
+			datos.setLastcord(cords);
 			this.datos.disminuirUnaJugada();
 			return this.datos;
 		}
 		this.datos.disminuirUnaJugada();
-		if (comprobarPosDisponible(cords) && datos.contadorFicha() < 6) {
+		if (comprobarPosDisponible(cords) && datos.contadorFicha() < 6 && Coordenada.casillaContigua(cords, datos.getLastcord())) {
 			this.datos.aumentarUnaJugada();
 			colocarFicha(cords);
+			if(datos.getLastcord()==cords) {
+				this.datos.disminuirUnaJugada();
+			}
 			// COMPROBAR SI HAS GANADO
 			datos.setHasGanado(datos.getTablero().comprobarTresEnRaya());
 			return this.datos;
