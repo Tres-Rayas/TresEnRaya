@@ -11,23 +11,29 @@ public class GestionMoverFicha {
 	}
 
 	public DatosComun MoverFicha(Coordenada cords) {
-		this.datos.aumentarUnaJugada();
-		if (datos.getTablero().comprobarPropiedad(cords, datos.verTurno())&& datos.getTablero().comprobarBloqueada(cords) && datos.contadorFicha() == 6) {
+		
+		//COMPROBAR FICHAS
+		if (datos.getLastcord()==null && datos.getTablero().comprobarPropiedad(cords, datos.verTurno())&& datos.getTablero().comprobarBloqueada(cords)) {
 			eliminarFicha(cords);
 			datos.setLastcord(cords);
-			this.datos.disminuirUnaJugada();
 			return this.datos;
 		}
-		this.datos.disminuirUnaJugada();
-		if (comprobarPosDisponible(cords) && datos.contadorFicha() < 6 && Coordenada.casillaContigua(cords, datos.getLastcord())) {
-			this.datos.aumentarUnaJugada();
-			colocarFicha(cords);
+		else if (datos.getLastcord()!=null && comprobarPosDisponible(cords) && Coordenada.casillaContigua(cords, datos.getLastcord())) {
 			if(datos.getLastcord()==cords) {
-				this.datos.disminuirUnaJugada();
+				colocarFicha(cords);
+				datos.setLastcord(null);
+				return this.datos;
 			}
+			colocarFicha(cords);
+			//PONER NULL EL ULTIMO TURNO
+			this.datos.setLastcord(null);
 			// COMPROBAR SI HAS GANADO
 			datos.setHasGanado(datos.getTablero().comprobarTresEnRaya());
-			return this.datos;
+			//SUMAR TURNO SI NO HAS GANADO
+			if(!datos.getHasGanado()) {
+				datos.aumentarUnaJugada();
+			}
+			
 		}
 		return this.datos;
 

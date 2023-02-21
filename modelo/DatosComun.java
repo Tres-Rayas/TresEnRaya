@@ -9,7 +9,7 @@ public class DatosComun {
 	public DatosComun() {
 		this.tablero = new Tablero();
 		this.numerojugada = 0;
-		this.lastCord = new Coordenada(0, 0);
+		this.lastCord = null;
 	}
 
 	// GETTERS

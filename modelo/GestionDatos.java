@@ -29,5 +29,8 @@ public class GestionDatos {
 	public int[][] getTablero() {
 		return datos.getTablero().getTableroCompleto();
 	}
+	public Coordenada fichaSelec() {
+		return datos.getLastcord();
+	}
 
 }

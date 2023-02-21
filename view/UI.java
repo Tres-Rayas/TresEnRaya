@@ -17,6 +17,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import java.awt.Color;
 
 public class UI extends JFrame {
 	private MyButton[][] botones = new MyButton[3][3];
@@ -44,9 +45,10 @@ public class UI extends JFrame {
 		panel.setLayout(new GridLayout(3, 3, 0, 0));
 		
 		lblMensaje = new JLabel("");
+		lblMensaje.setForeground(Color.GREEN);
 		lblMensaje.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMensaje.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblMensaje.setBounds(62, 36, 319, 38);
+		lblMensaje.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblMensaje.setBounds(10, 36, 414, 38);
 		
 		lblCurrentPlayer = new JLabel("x");
 		lblCurrentPlayer.setBounds(23, 126, 52, 51);
