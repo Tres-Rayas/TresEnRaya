@@ -1,11 +1,10 @@
 package modelo;
 
-
 public class Coordenada {
-	private int x,y;
-	
+	private int x, y;
+
 	public Coordenada(int x, int y) {
-		super();		
+		super();
 		this.x = x;
 		this.y = y;
 	}
@@ -30,21 +29,22 @@ public class Coordenada {
 		this.setX(destino.getX());
 		this.setY(destino.getY());
 	}
+
 	/**
 	 * Comprueba si la casilla destino es contigua a la casilla origen
 	 * 
 	 * @return True si es contigua false en caso contrario
 	 */
-	public boolean casillaContigua(Coordenada destino) {
-		int x = destino.getX() - this.getX(), y = destino.getY() - this.getY();
+	public static boolean casillaContigua(Coordenada destino, Coordenada origen) {
+		int x = destino.getX() - origen.getX(), y = destino.getY() - origen.getY();
 		if (x > -2 && x < 2 && y > -2 && y < 2)
 			return true;
 		return false;
 
 	}
-	
+
 	@Override
 	public String toString() {
-		return ""+x+":"+y;
+		return "" + x + ":" + y;
 	}
 }
