@@ -1,36 +1,53 @@
 package modelo;
 
-
-
 public class DatosComun {
 	private Tablero tablero;
 	private int numerojugada;
 	private boolean hasGanado;
-	
+	private Coordenada lastCord;
+
 	public DatosComun() {
-		this.tablero=new Tablero();
+		this.tablero = new Tablero();
 		this.numerojugada = 0;
+		this.lastCord = new Coordenada(0, 0);
 	}
 
-	//GETTERS
+	// GETTERS
+
 	public Tablero getTablero() {
 		return tablero;
 	}
+
 	public int getNumerojugada() {
 		return numerojugada;
 	}
+
 	public boolean getHasGanado() {
 		return hasGanado;
 	}
-	public void setHasGanado(boolean ganadorOno) {
-		this.hasGanado=ganadorOno;
+
+	public Coordenada getLastcord() {
+		return lastCord;
 	}
+	
+	// SETTERS
+
+	public void setHasGanado(boolean ganadorOno) {
+		this.hasGanado = ganadorOno;
+	}
+
 	public void aumentarUnaJugada() {
 		this.numerojugada++;
 	}
+
 	public void disminuirUnaJugada() {
 		this.numerojugada--;
 	}
+
+	public void setLastcord(Coordenada lastcord) {
+		this.lastCord = lastcord;
+	}
+
 	public int contadorFicha() {
 		int acum = 0;
 		for (int i = 0; i < tablero.getTableroCompleto().length; i++) {
@@ -43,6 +60,7 @@ public class DatosComun {
 
 		return acum;
 	}
+
 	/**
 	 * Informa de quien es el turno actual
 	 * 
@@ -54,6 +72,5 @@ public class DatosComun {
 		return 1;
 
 	}
-	
-	
+
 }
