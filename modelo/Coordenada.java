@@ -36,6 +36,9 @@ public class Coordenada {
 		return false;
 
 	}
+	public boolean compareTo(Coordenada otraCord) {
+		return this.getX()==otraCord.getX() && this.getY()==otraCord.getY();
+	}
 
 	@Override
 	public String toString() {

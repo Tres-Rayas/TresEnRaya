@@ -12,10 +12,12 @@ public class GestionColocarFicha {
 	
 	public DatosComun hacerMovimiento(Coordenada cords) {
 		if(comprobarPosDisponible(cords)) {
-			this.datos.aumentarUnaJugada();
 			colocarFicha(cords);
 			//COMPROBAR SI HAS GANADO
 			datos.setHasGanado(datos.getTablero().comprobarTresEnRaya());
+			//SUMAR TURNO
+			if(!datos.getHasGanado())
+				this.datos.aumentarUnaJugada();
 			return this.datos;
 		}
 		return this.datos;

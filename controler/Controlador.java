@@ -22,20 +22,24 @@ public class Controlador {
 
 	public String devolverTurnoActual() {
 		if (gestion.getDatos().verTurno() == 1) {
-			return "O";
-		} else {
 			return "X";
+		} else {
+			return "O";
 		}
 	}
 
 	public String mensajeHasGanado() {
 		if (gestion.getDatos().getHasGanado()) {
-			return "Has ganado";
+			return "\"JUGADOR "+devolverTurnoActual()+"\" HAS GANADO!!";
 		}
 		return "";
 	}
 
 	public int[][] getTablero() {
 		return gestion.getTablero();
+	}
+	
+	public Coordenada getFichaSelec() {
+		return gestion.fichaSelec();
 	}
 }
